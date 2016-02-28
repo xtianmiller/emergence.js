@@ -1,0 +1,20 @@
+{
+  "name": "Emergence.js",
+  "version": "1.0.0",
+  "description": "Revealing elements when they appear in viewport with data-* attributes",
+  "author": "@xtianmiller",
+  "license": "MIT",
+  "homepage": "http://xtianmiller.github.io/emergence.js",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-header": "^1.0.2",
+    "gulp-jshint": "^1.11.0",
+    "gulp-plumber": "~0.6.2",
+    "gulp-rename": "~1.1.0",
+    "gulp-uglify": "~0.3.0",
+    "gulp-size": "^1.2.2",
+    "jshint-stylish": "^0.2.0"
+  },
+  "main": "src/emergence.js"
+}

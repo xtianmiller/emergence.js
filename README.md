@@ -1,1 +1,2 @@
-# emergence
+# Emergence.js
+
