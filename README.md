@@ -1,5 +1,5 @@
 # Emergence.js
-Emergence.js is a lightweight (<3KB), high-performance and dependency-free JavaScript plugin for manipulating elements when they appear in the viewport. It leverages HTML5 data-* attributes for ease, and works in IE8+.
+Emergence.js is a lightweight (<3KB), high-performance and dependency-free JavaScript utility for manipulating elements when they appear in the viewport. It leverages HTML5 data-* attributes for ease, and works in IE8+.
 
 Simply add a `data-emergence="hidden"` attribute to any element in the DOM. If the element is visible, the attribute will change to `data-emergence="visible"`.
 
