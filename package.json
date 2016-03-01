@@ -4,7 +4,7 @@
     "description": "Revealing elements when they appear in viewport with data-* attributes",
     "author": "@xtianmiller",
     "license": "MIT",
-    "homepage": "http://xtianmiller.github.io/emergence.js",
+    "homepage": "https://github.com/xtianmiller/emergence.js",
     "devDependencies": {
         "gulp": "^3.9.0",
         "gulp-clean": "^0.2.4",
