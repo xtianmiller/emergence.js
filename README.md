@@ -18,7 +18,7 @@ You can grab the latest code from the following locations:
 - `bower install emergence.js`
 
 ## How To Use
-Add `data-emergence="hidden"` to any element you want to watch for emergence:
+Add `data-emergence="hidden"` to any element you wish to watch:
 
 ```html
 <div class="element" data-emergence="hidden"></div>
@@ -28,10 +28,10 @@ When the element becomes visible within the viewport, the attribute will change 
 
 ```css
 .element[data-emergence=hidden] {
-    // Initial state
+    /* Initial state */
 }
 .element[data-emergence=visible] {
-    // Do something
+    /* Updated state */
 }
 ```
 
@@ -64,7 +64,7 @@ Emergence.js has a number of options you can customize. Below are the defaults:
 ```
 
 ### Options Explained
-#### Container
+#### container
 It's possible to provide a custom container from within the DOM. For example, `document.querySelector('.wrapper');`. By default, `null` will pass `<html>` as the container.
 
 #### throttle
