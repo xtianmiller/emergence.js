@@ -31,7 +31,7 @@ When the element becomes visible within the viewport, the attribute will change 
     /* Initial state */
 }
 .element[data-emergence=visible] {
-    /* Updated state */
+    /* Do something */
 }
 ```
 
