@@ -1,4 +1,4 @@
-/*! emergence.js v1.0.2 | (c) 2016 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.0.3 | (c) 2016 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
 
     // AMD

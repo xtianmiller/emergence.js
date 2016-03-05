@@ -46,12 +46,10 @@ Emergence.js has a number of options you can customize. Below are the defaults:
 		reset: true,
 		handheld: true,
 		elemCushion: 0.15,
-		viewportOffset: {
-			top: 0,
-			right: 0,
-			bottom: 0,
-			left: 0
-		},
+		offsetTop: 0,
+		offsetRight: 0,
+		offsetBottom: 0,
+		offsetLeft: 0,
 		callback: function(element, state) {
 		    if (state === 'visible') {
 		      console.log('Element has emerged.');
@@ -79,7 +77,7 @@ Don't want this utility to run on handheld devices such as iPhones, iPads, and A
 #### elemCushion
 The element cushion will determine how much of the element needs to be within the viewport to count as "visible". The default value of 0.15 incidates 15% of the element needs to be in the viewport.
 
-#### viewportOffset
+#### offsetTop, offsetRight, offsetBottom, offsetLeft
 Provide an offset on any edge of the viewport. This is useful if you have a fixed component such as a header, for which you can offset the same value as the height of the header.
 
 #### callback
