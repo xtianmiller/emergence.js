@@ -22,7 +22,7 @@
     'use strict';
 
     var emergence = {};
-    var poll, container, throttle, reset, handheld, elemCushion, viewportOffset;
+    var poll, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
     var callback = function() {};
 
     // Browser feature test to include any browser APIs required for >= IE8
@@ -146,10 +146,10 @@
             var eLeft = elemLeft + elemWidth * elemCushion;
 
             // Determine container boundaries including custom offset
-            var cTop = containerScroll.y + viewportOffset.top;
-            var cRight = containerScroll.x - viewportOffset.right + containerSize.width;
-            var cBottom = containerScroll.y - viewportOffset.bottom + containerSize.height;
-            var cLeft = containerScroll.x + viewportOffset.left;
+            var cTop = containerScroll.y + offsetTop;
+            var cRight = containerScroll.x - offsetRight + containerSize.width;
+            var cBottom = containerScroll.y - offsetBottom + containerSize.height;
+            var cLeft = containerScroll.x + offsetLeft;
 
             return (eTop < cBottom) && (eBottom > cTop) && (eLeft > cLeft) && (eRight < cRight);
         };
@@ -173,17 +173,21 @@
     // @param {Object} options Custom settings
     emergence.init = function(options) {
         options = options || {};
-        container = options.container || null;
-        throttle = options.throttle || 250;
-        reset = !!options.reset;
-        handheld = !!options.handheld;
-        elemCushion = options.elemCushion || 0.15;
-        viewportOffset = {
-            top: options.viewportOffset.top || 0,
-            right: options.viewportOffset.right || 0,
-            bottom: options.viewportOffset.bottom || 0,
-            left: options.viewportOffset.left || 0
+        var optionInt = function (option, fallback) {
+            return parseInt(option || fallback, 10);
         };
+        var optionFloat = function (option, fallback) {
+            return parseFloat(option || fallback);
+        };
+        container = options.container || null;
+        throttle = optionInt(options.throttle, 250);
+        reset = !options.reset;
+        handheld = !options.handheld;
+        elemCushion = optionFloat(options.elemCushion, 0.15);
+        offsetTop = optionInt(options.offsetTop, 0);
+        offsetRight = optionInt(options.offsetRight, 0);
+        offsetBottom = optionInt(options.offsetBottom, 0);
+        offsetLeft = optionInt(options.offsetLeft, 0);
         callback = options.callback || callback;
 
         // If browser doesn't pass feature test, provide console.log
