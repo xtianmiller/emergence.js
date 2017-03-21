@@ -1,6 +1,8 @@
 # Emergence.js
 Emergence.js is a lightweight (<3KB), high-performance and dependency-free JS utility (currently beta) for manipulating elements when they appear in the viewport. It leverages HTML5 data-* attributes for ease, and works in IE8+.
 
+[View Demo](http://codepen.io/xtianmiller/pen/QpmGxL)
+
 ## Get Started
 The fastest way to get started is to reference to emergence.js just before your closing `</body>` tag, and then simply call `emergence.init`.
 

@@ -1,4 +1,4 @@
-/*! emergence.js v1.0.3 | (c) 2016 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.0.3 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
 
     // AMD
@@ -234,7 +234,7 @@
 
                 // If reset option is false, remove the attribute from element
                 // to prevent it from going hidden again
-                if (!reset) {
+                if (reset) {
                     elem.removeAttribute('data-emergence');
                 }
 
@@ -245,7 +245,7 @@
                 callback(elem, 'visible');
             }
             // Else if reset option is true
-            else if (reset) {
+            else if (!reset) {
 
                 // Change the state of the attribute to "hidden"
                 elem.setAttribute('data-emergence', 'hidden');
