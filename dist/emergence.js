@@ -1,4 +1,4 @@
-/*! emergence.js v1.0.3 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.0.4 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
 
     // AMD
@@ -111,7 +111,7 @@
         return (elem.offsetParent === null);
     };
 
-    // Check if element has visible
+    // Check if element is visible
     // @param {DOMElement} elem the element
     // @return {bool} true if visible, false otherwise
     var isVisible = function(elem) {
@@ -219,7 +219,7 @@
     };
 
     // Loop through objects with data-emergence attribute
-    // Invoke isVisible() to determine if element has visible
+    // Invoke isVisible() to determine if element is visible
     emergence.render = function() {
         var nodes = document.querySelectorAll('[data-emergence]');
         var length = nodes.length;
@@ -228,11 +228,11 @@
         for (var i = 0; i < length; i++) {
             elem = nodes[i];
 
-            // If Element has visible
+            // If Element is visible
             // @param {Object} elem The element with data attribute
             if (isVisible(elem)) {
 
-                // If reset option is false, remove the attribute from element
+                // Remove the attribute from element
                 // to prevent it from going hidden again
                 if (reset) {
                     elem.removeAttribute('data-emergence');
@@ -241,10 +241,9 @@
                 // Change the state of the attribute to "visible"
                 elem.setAttribute('data-emergence', 'visible');
 
-                // Providing a callback for when element has visible
+                // Providing a callback for when element is visible
                 callback(elem, 'visible');
             }
-            // Else if reset option is true
             else if (!reset) {
 
                 // Change the state of the attribute to "hidden"
