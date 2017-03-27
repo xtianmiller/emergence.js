@@ -181,7 +181,7 @@
         };
         container = options.container || null;
         throttle = optionInt(options.throttle, 250);
-        reset = !options.reset;
+        reset = options.reset;
         handheld = !options.handheld;
         elemCushion = optionFloat(options.elemCushion, 0.15);
         offsetTop = optionInt(options.offsetTop, 0);
@@ -230,20 +230,14 @@
             // If Element is visible
             // @param {Object} elem The element with data attribute
             if (isVisible(elem)) {
-
-                // Remove the attribute from element
-                // to prevent it from going hidden again
-                if (reset) {
-                    elem.removeAttribute('data-emergence');
-                }
-
+                
                 // Change the state of the attribute to "visible"
                 elem.setAttribute('data-emergence', 'visible');
 
                 // Providing a callback for when element is visible
                 callback(elem, 'visible');
             }
-            else if (!reset) {
+            else if (reset) {
 
                 // Change the state of the attribute to "hidden"
                 elem.setAttribute('data-emergence', 'hidden');
