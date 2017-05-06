@@ -9,7 +9,7 @@ Reference emergence.js just before your closing `</body>` tag, then simply call 
 ```html
 <script src="path/to/emergence.min.js"></script>
 <script>
-	emergence.init();
+  emergence.init();
 </script>
 ```
 
@@ -30,10 +30,10 @@ When the element becomes visible within the viewport, the attribute will change 
 
 ```css
 .element[data-emergence=hidden] {
-    /* Initial state */
+  /* Initial state */
 }
 .element[data-emergence=visible] {
-    /* Do something */
+  /* Do something */
 }
 ```
 
