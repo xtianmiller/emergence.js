@@ -42,15 +42,15 @@ Emergence.js has a number of options you can customize. Below are the defaults:
 
 ```javascript
 emergence.init({
-	container: null,
-	throttle: 250,
-	reset: true,
-	handheld: true,
-	elemCushion: 0.15,
-	offsetTop: 0,
-	offsetRight: 0,
-	offsetBottom: 0,
-	offsetLeft: 0,
+  container: null,
+  throttle: 250,
+  reset: true,
+  handheld: true,
+  elemCushion: 0.15,
+  offsetTop: 0,
+  offsetRight: 0,
+  offsetBottom: 0,
+  offsetLeft: 0,
   callback: function(element, state) {
     if (state === 'visible') {
       console.log('Element is visible.');
