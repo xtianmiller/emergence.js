@@ -1,49 +1,44 @@
-/*! emergence.js v1.0.6 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.0.7 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
-
   // AMD
   if (typeof define === 'function' && define.amd) {
     define(function() {
       return factory(root);
     });
-  }
-
-  // Node.js or CommonJS
-  else if (typeof exports === 'object') {
+  } else if (typeof exports === 'object') {
+    // Node.js or CommonJS
     module.exports = factory;
-  }
-
-  // Browser globals
-  else {
+  } else {
+    // Browser globals
     root.emergence = factory(root);
   }
-
 })(this, function(root) {
 
   'use strict';
 
   var emergence = {};
-  var poll, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
+  var viewport, poll, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
   var callback = function() {};
 
   // Browser feature test to include any browser APIs required for >= IE8
   // @see http://xtianmiller.com/notes/cutting-the-mustard/
   // @return {bool} true if supported, otherwise false
   var cutsTheMustard = function() {
-    return ('querySelectorAll' in document) ? true : false;
+    return 'querySelectorAll' in document ? true : false;
   };
 
   // Checks if user is on a handheld
   // @return {bool} true if it's a handheld, otherwise false
   var isHandheld = function() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
   };
 
-  // Get the offset of a DOMElement
+  // Get the offset of a DOM Element
   // @param {DOMElement} elem the container or element
   // @return {int} the top, left, width and height values in pixels
   var getElemOffset = function(elem) {
-
     // Default top and left position of container or element
     var topPos = 0;
     var leftPos = 0;
@@ -108,7 +103,7 @@
   // @param {DOMElement} elem the element
   // @return {bool} true if hidden, false otherwise
   var isHidden = function(elem) {
-    return (elem.offsetParent === null);
+    return elem.offsetParent === null;
   };
 
   // Check if element is visible
@@ -121,10 +116,10 @@
       return false;
     }
 
-    // Get info from other functions
+    // Get information from element and container
     var elemOffset = getElemOffset(elem);
-    var containerSize = getContainerSize();
-    var containerScroll = getContainerScroll();
+    var containerSize = getContainerSize(container);
+    var containerScroll = getContainerScroll(container);
 
     // Determine element size
     var elemWidth = elemOffset.width;
@@ -139,7 +134,6 @@
     // Determine boundaries of container and element
     // @return {bool} true if element is found within boundaries, otherwise false
     var checkBoundaries = function() {
-
       // Determine element boundaries including custom cushion
       var eTop = elemTop + elemHeight * elemCushion;
       var eRight = elemRight - elemWidth * elemCushion;
@@ -152,7 +146,9 @@
       var cBottom = containerScroll.y - offsetBottom + containerSize.height;
       var cLeft = containerScroll.x + offsetLeft;
 
-      return (eTop < cBottom) && (eBottom > cTop) && (eLeft > cLeft) && (eRight < cRight);
+      return (
+        eTop < cBottom && eBottom > cTop && eLeft > cLeft && eRight < cRight
+      );
     };
 
     return checkBoundaries();
@@ -183,7 +179,7 @@
       return parseFloat(option || fallback);
     };
 
-    container = options.container || null; // null by default
+    container = options.container || null; // null (window) by default
     throttle = optionInt(options.throttle, 250); // 250 by default
     reset = !!options.reset; // true by default
     handheld = !!options.handheld; // true by default
@@ -197,27 +193,27 @@
     // If browser doesn't pass feature test, provide console.log
     if (!cutsTheMustard()) {
       console.log('emergence.js is not supported in this browser.');
-    }
-
-    // Else if this is a handheld device AND handheld option is true, or not a handheld device
-    else if (isHandheld() && handheld || !isHandheld()) {
-
-      // Add ".emergence" class to document for conditional CSS
+    } else if ((isHandheld() && handheld) || !isHandheld()) {
+      // Else if this is a handheld device AND handheld option is true, or not a handheld device
+      // Add '.emergence' class to document for conditional CSS
       document.documentElement.className += ' emergence';
 
       // Run object loop the first time
       emergence.render();
 
       // Listeners for scroll, resize, and load events
+      // Determine if viewport is custom container, else root
       // Invoke useThrottle() to throttle the events
+      viewport = container || root;
+
       if (document.addEventListener) {
-        root.addEventListener('scroll', useThrottle, false);
-        root.addEventListener('resize', useThrottle, false);
-        root.addEventListener('load', useThrottle, false);
+        viewport.addEventListener('load', useThrottle, false);
+        viewport.addEventListener('scroll', useThrottle, false);
+        viewport.addEventListener('resize', useThrottle, false);
       } else {
-        root.attachEvent('onscroll', useThrottle);
-        root.attachEvent('onresize', useThrottle);
-        root.attachEvent('onload', useThrottle);
+        viewport.attachEvent('onload', useThrottle);
+        viewport.attachEvent('onscroll', useThrottle);
+        viewport.attachEvent('onresize', useThrottle);
       }
     }
   };
@@ -230,34 +226,26 @@
 
     // If data-emergence attribute exists
     if (length) {
-
       // Loop through objects with data-emergence attribute
       for (var i = 0; i < length; i++) {
         elem = nodes[i];
 
         // If element is visible
         if (isVisible(elem)) {
-
-          // Change the state of the attribute to "visible"
+          // Change the state of the attribute to 'visible'
           elem.setAttribute('data-emergence', 'visible');
 
           // Callback for when element is visible
           callback(elem, 'visible');
-        }
-
-        // Else if element is hidden and reset
-        else if (reset === true) {
-
-          // Change the state of the attribute to "hidden"
+        } else if (reset === true) {
+          // Else if element is hidden and reset
+          // Change the state of the attribute to 'hidden'
           elem.setAttribute('data-emergence', 'hidden');
 
           // Create callback
           callback(elem, 'reset');
-        }
-
-        // Else if element is hidden and NOT reset
-        else if (reset === false) {
-
+        } else if (reset === false) {
+          // Else if element is hidden and NOT reset
           // Create callback
           callback(elem, 'noreset');
         }
@@ -269,17 +257,18 @@
 
   // Disengage emergence
   emergence.disengage = function() {
-
     // Send message to console if no data-emergence attribute is found
     console.log('emergence.js found no elements with required data attribute.');
 
     // Remove and detach event listeners
     if (document.removeEventListener) {
-      root.removeEventListener('scroll', useThrottle);
-      root.removeEventListener('resize', useThrottle);
+      viewport.removeEventListener('load', useThrottle, false);
+      viewport.removeEventListener('scroll', useThrottle, false);
+      viewport.removeEventListener('resize', useThrottle, false);
     } else {
-      root.detachEvent('onscroll', useThrottle);
-      root.detachEvent('onresize', useThrottle);
+      viewport.detachEvent('onload', useThrottle);
+      viewport.detachEvent('onscroll', useThrottle);
+      viewport.detachEvent('onresize', useThrottle);
     }
 
     // Clear timeout from throttle
@@ -287,5 +276,4 @@
   };
 
   return emergence;
-
 });

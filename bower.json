@@ -1,6 +1,6 @@
 {
   "name": "emergence.js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Revealing elements when they appear in viewport with data-* attributes",
   "author": "@xtianmiller",
   "license": "MIT",
@@ -8,14 +8,18 @@
   "main": "src/emergence.js",
   "moduleType": [],
   "keywords": [
-    "emergence"
+    "emergence",
+    "reveal",
+    "elements",
+    "animate"
   ],
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "npm-debug.log"
   ],
   "authors": [
     "Christian Miller <contact@xtianmiller.com>"
