@@ -16,7 +16,7 @@
   "undef": true,
   "unused": false,
   "trailing": false,
-  "globals" : {
+  "globals": {
     "define": true
   }
 }
