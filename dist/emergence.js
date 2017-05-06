@@ -1,4 +1,4 @@
-/*! emergence.js v1.0.5 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.0.6 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
 
   // AMD
@@ -183,15 +183,15 @@
       return parseFloat(option || fallback);
     };
 
-    container = options.container || null;
-    throttle = optionInt(options.throttle, 250);
-    reset = options.reset || true;
-    handheld = !options.handheld;
-    elemCushion = optionFloat(options.elemCushion, 0.15);
-    offsetTop = optionInt(options.offsetTop, 0);
-    offsetRight = optionInt(options.offsetRight, 0);
-    offsetBottom = optionInt(options.offsetBottom, 0);
-    offsetLeft = optionInt(options.offsetLeft, 0);
+    container = options.container || null; // null by default
+    throttle = optionInt(options.throttle, 250); // 250 by default
+    reset = !!options.reset; // true by default
+    handheld = !!options.handheld; // true by default
+    elemCushion = optionFloat(options.elemCushion, 0.15); // 0.15 by default
+    offsetTop = optionInt(options.offsetTop, 0); // 0 by default
+    offsetRight = optionInt(options.offsetRight, 0); // 0 by default
+    offsetBottom = optionInt(options.offsetBottom, 0); // 0 by default
+    offsetLeft = optionInt(options.offsetLeft, 0); // 0 by default
     callback = options.callback || callback;
 
     // If browser doesn't pass feature test, provide console.log
@@ -222,42 +222,55 @@
     }
   };
 
-  // Loop through objects with data-emergence attribute
-  // Invoke isVisible() to determine if element is visible
+  // Render emergence
   emergence.render = function() {
     var nodes = document.querySelectorAll('[data-emergence]');
     var length = nodes.length;
     var elem;
 
-    for (var i = 0; i < length; i++) {
-      elem = nodes[i];
+    // If data-emergence attribute exists
+    if (length) {
 
-      // If element is visible
-      // @param {Object} elem the element with data attribute
-      if (isVisible(elem)) {
-        // Change the state of the attribute to "visible"
-        elem.setAttribute('data-emergence', 'visible');
+      // Loop through objects with data-emergence attribute
+      for (var i = 0; i < length; i++) {
+        elem = nodes[i];
 
-        // Providing a callback for when element is visible
-        callback(elem, 'visible');
-      } else if (reset) {
-        // Change the state of the attribute to "hidden"
-        elem.setAttribute('data-emergence', 'hidden');
+        // If element is visible
+        if (isVisible(elem)) {
 
-        // Providing a callback for when element has reset
-        callback(elem, 'reset');
+          // Change the state of the attribute to "visible"
+          elem.setAttribute('data-emergence', 'visible');
+
+          // Callback for when element is visible
+          callback(elem, 'visible');
+        }
+
+        // Else if element is hidden and reset
+        else if (reset === true) {
+
+          // Change the state of the attribute to "hidden"
+          elem.setAttribute('data-emergence', 'hidden');
+
+          // Create callback
+          callback(elem, 'reset');
+        }
+
+        // Else if element is hidden and NOT reset
+        else if (reset === false) {
+
+          // Create callback
+          callback(elem, 'noreset');
+        }
       }
-    }
-
-    // If no element with data attribute exists, disengage
-    if (!length) {
+    } else {
       emergence.disengage();
     }
   };
 
+  // Disengage emergence
   emergence.disengage = function() {
 
-    // Send message to console if no emergence attribute is found
+    // Send message to console if no data-emergence attribute is found
     console.log('emergence.js found no elements with required data attribute.');
 
     // Remove and detach event listeners

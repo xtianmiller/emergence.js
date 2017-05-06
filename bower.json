@@ -1,6 +1,6 @@
 {
   "name": "emergence.js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Revealing elements when they appear in viewport with data-* attributes",
   "author": "@xtianmiller",
   "license": "MIT",
