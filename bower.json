@@ -13,6 +13,11 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "Christian Miller <contact@xtianmiller.com>"
   ]
 }
