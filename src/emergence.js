@@ -16,7 +16,8 @@
   'use strict';
 
   var emergence = {};
-  var viewport, poll, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
+  var poll, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
+  var viewport = container || root;
   var callback = function() {};
 
   // Browser feature test to include any browser APIs required for >= IE8
@@ -153,14 +154,14 @@
     return checkBoundaries();
   };
 
-  // Throttling for load, scroll and resize events
+  // Throttling for scroll and resize events
   var useThrottle = function() {
     if (!!poll) {
       return;
     }
     clearTimeout(poll);
     poll = setTimeout(function() {
-      emergence.render();
+      emergence.engage();
       poll = null;
     }, throttle);
   };
@@ -197,28 +198,23 @@
       // Add '.emergence' class to document for conditional CSS
       document.documentElement.className += ' emergence';
 
-      // Run object loop the first time
-      emergence.render();
+      // Engage emergence for the first time
+      emergence.engage();
 
-      // Listeners for scroll, resize, and load events
-      // Determine if viewport is custom container, else root
-      // Invoke useThrottle() to throttle the events
-      viewport = container || root;
-
+      // Listeners for scroll and resize events
+      // Invoke useThrottle()
       if (document.addEventListener) {
-        viewport.addEventListener('load', useThrottle, false);
         viewport.addEventListener('scroll', useThrottle, false);
         viewport.addEventListener('resize', useThrottle, false);
       } else {
-        viewport.attachEvent('onload', useThrottle);
         viewport.attachEvent('onscroll', useThrottle);
         viewport.attachEvent('onresize', useThrottle);
       }
     }
   };
 
-  // Render emergence
-  emergence.render = function() {
+  // Engage emergence
+  emergence.engage = function() {
     var nodes = document.querySelectorAll('[data-emergence]');
     var length = nodes.length;
     var elem;
@@ -261,11 +257,9 @@
 
     // Remove and detach event listeners
     if (document.removeEventListener) {
-      viewport.removeEventListener('load', useThrottle, false);
       viewport.removeEventListener('scroll', useThrottle, false);
       viewport.removeEventListener('resize', useThrottle, false);
     } else {
-      viewport.detachEvent('onload', useThrottle);
       viewport.detachEvent('onscroll', useThrottle);
       viewport.detachEvent('onresize', useThrottle);
     }
