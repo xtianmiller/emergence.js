@@ -1,4 +1,4 @@
-/*! emergence.js v1.0.8 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.0.9 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
   // AMD
   if (typeof define === 'function' && define.amd) {
@@ -17,8 +17,7 @@
   'use strict';
 
   var emergence = {};
-  var poll, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
-  var viewport = container || root;
+  var poll, viewport, container, throttle, reset, handheld, elemCushion, offsetTop, offsetRight, offsetBottom, offsetLeft;
   var callback = function() {};
 
   // Browser feature test to include any browser APIs required for >= IE8
@@ -200,10 +199,16 @@
       document.documentElement.className += ' emergence';
 
       // Engage emergence for the first time
-      emergence.engage();
+      document.addEventListener('DOMContentLoaded', function() {
+        emergence.engage();
+      });
 
       // Listeners for scroll and resize events
       // Invoke useThrottle()
+
+      if (container) { viewport = container; } 
+      else { viewport = root; }
+
       if (document.addEventListener) {
         viewport.addEventListener('scroll', useThrottle, false);
         viewport.addEventListener('resize', useThrottle, false);
@@ -257,6 +262,9 @@
     console.log('emergence.js found no elements with required data attribute.');
 
     // Remove and detach event listeners
+    if (container) { viewport = container; } 
+    else { viewport = root; }
+
     if (document.removeEventListener) {
       viewport.removeEventListener('scroll', useThrottle, false);
       viewport.removeEventListener('resize', useThrottle, false);
