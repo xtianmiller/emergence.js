@@ -197,21 +197,20 @@
       // Add '.emergence' class to document for conditional CSS
       document.documentElement.className += ' emergence';
 
-      // Engage emergence for the first time
-      document.addEventListener('DOMContentLoaded', function() {
-        emergence.engage();
-      });
-
       // Listeners for scroll and resize events
       // Invoke useThrottle()
 
       if (container) { viewport = container; } 
       else { viewport = root; }
 
-      if (document.addEventListener) {
+      if (viewport.addEventListener) {
+        viewport.addEventListener('DOMContentLoaded', useThrottle, false);
         viewport.addEventListener('scroll', useThrottle, false);
         viewport.addEventListener('resize', useThrottle, false);
       } else {
+        viewport.attachEvent('onreadystatechange', function() {
+          if (viewport.readyState === 'complete') { useThrottle(); }
+        });
         viewport.attachEvent('onscroll', useThrottle);
         viewport.attachEvent('onresize', useThrottle);
       }
@@ -264,7 +263,7 @@
     if (container) { viewport = container; } 
     else { viewport = root; }
 
-    if (document.removeEventListener) {
+    if (viewport.removeEventListener) {
       viewport.removeEventListener('scroll', useThrottle, false);
       viewport.removeEventListener('resize', useThrottle, false);
     } else {
