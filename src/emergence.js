@@ -180,8 +180,8 @@
 
     container = options.container || null; // null (window) by default
     throttle = optionInt(options.throttle, 250); // 250 by default
-    reset = !!options.reset; // true by default
-    handheld = !!options.handheld; // true by default
+    reset = typeof options.reset != 'undefined' ? options.reset : true; // true by default
+    handheld = typeof options.handheld != 'undefined' ? options.handheld : true; // true by default
     elemCushion = optionFloat(options.elemCushion, 0.15); // 0.15 by default
     offsetTop = optionInt(options.offsetTop, 0); // 0 by default
     offsetRight = optionInt(options.offsetRight, 0); // 0 by default
