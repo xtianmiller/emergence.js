@@ -14,7 +14,7 @@ Emergence.js is a lightweight, high-performance JS plugin for detecting and mani
 ***
 
 ## Why Use It?
-If you're looking for ready-made animations, scroll-jacking or timelines tied to scrolling in the browser, this isn't for you. All this plugin simply does is change the state of an attribute when an element becomes visible. It leverages HTML5 data-* attributes instead of classes for ease and developer clarity, leaving it up to the developer to create their own CSS (or JS) animations. Emergence.js is one of the lightest and most compatible plugins of its kind.
+This plugin is designed to allow manipulation on elements when they become visible; leaving it up to the developer to add their own CSS/JS animations. It leverages HTML5 data-* attributes instead of classes for ease and developer clarity. Emergence.js is one of the lightest and most compatible plugins of its kind.
 
 ***
 
