@@ -1,7 +1,7 @@
 {
   "name": "emergence.js",
   "version": "1.1.0",
-  "description": "Revealing elements when they appear in viewport with data-* attributes",
+  "description": "Detect element visibility in the browser",
   "author": "@xtianmiller",
   "license": "MIT",
   "homepage": "https://github.com/xtianmiller/emergence.js",
