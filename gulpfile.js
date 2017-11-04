@@ -11,9 +11,7 @@ var gulp = require('gulp'),
 
 var paths = {
   output: 'dist/',
-  scripts: [
-    'src/emergence.js'
-  ]
+  scripts: 'src/emergence.js'
 };
 
 var banner = [
@@ -35,13 +33,13 @@ gulp.task('scripts', ['clean'], function() {
       }
     }))
     .pipe(header(banner, { package: package }))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest(paths.output))
     .pipe(size({ showFiles: true }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(size({ showFiles: true }))
     .pipe(header(banner, { package: package }))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest(paths.output))
 });
 
 gulp.task('lint', function() {
@@ -68,7 +66,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/emergence.js', ['default']);
+  gulp.watch(paths.scripts, ['default']);
 });
 
 gulp.task('default', [

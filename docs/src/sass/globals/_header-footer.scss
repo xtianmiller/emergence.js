@@ -1,0 +1,52 @@
+
+.header,
+.footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 36px;
+  padding-right: 36px;
+  position: fixed;
+  backface-visibility: hidden;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.580, 0.300, 0.005, 1.000);
+}
+
+.header {
+  top: 0;
+  transform: translateY(-150%);
+
+	.logo {
+	  font-size: ms(1);
+	  font-family: $pirata;
+	  font-weight: 400;
+	  letter-spacing: -0.03em;
+    color: $black;
+	}
+
+  a.btn {
+    color: $white;
+  }
+}
+
+.footer {
+  font-size: ms(-1);
+  bottom: 0;
+  transform: translateY(150%);
+  color: $gray;
+  font-weight: 600;
+
+  p { padding-top: 0; }
+  a { color: $black; }
+  a:hover { color: $black; }
+}
+
+.scrolled .header,
+.scrolled .footer {
+  transform: translateY(0%);
+}

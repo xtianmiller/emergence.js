@@ -1,0 +1,27 @@
+
+a.btn {
+  display: inline-block;
+  padding-left: ms(3);
+  padding-right: ms(3);
+  padding-top: ms(-2);
+  padding-bottom: ms(-2);
+  line-height: 1;
+  border-radius: ms(2);
+  font-size: ms(0);
+  color: $pastel;
+  background-color: $black;
+  text-decoration: none;
+  transition: color 400ms;
+
+  &:hover {
+    color: $white;
+  }
+
+  &--small {
+  	font-size: ms(-2);
+	  padding-left: ms(0);
+	  padding-right: ms(0);
+    padding-top: ms(-3);
+    padding-bottom: ms(-3);
+  }
+}

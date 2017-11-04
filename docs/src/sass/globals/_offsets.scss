@@ -1,0 +1,18 @@
+
+.offset {
+  position: fixed;
+  backface-visibility: hidden;
+  z-index: 20;
+  background-color: $white;
+  left: 36px;
+  right: 36px;
+  height: 100px;
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.580, 0.300, 0.005, 1.000);
+  overflow: visible;
+}
+
+.offset__top { top: -64px; }
+.offset__bottom { bottom: -64px; }
+.scrolled .offset__top { transform: translateY(64px); }
+.scrolled .offset__bottom { transform: translateY(-64px); }

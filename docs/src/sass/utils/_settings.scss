@@ -1,0 +1,36 @@
+
+/* Include-Media Breakpoints */
+$breakpoints: (
+	small_phone: 400px,
+	phone: 480px,
+	tablet: 800px,
+	small_desktop: 1024px,
+	desktop: 1280px,
+	large_desktop: 1440px,
+	xlarge_desktop: 1800px,
+	xxlarge_desktop: 2200px
+);
+
+/* Modular-Scale */
+$ms-base: 1rem;
+$ms-ratio: $fourth;
+
+/* Line Heights */
+$lineheight-base: 1.4;
+
+/* Fonts */
+$raleway: 'Raleway', sans-serif;
+$pirata: 'Pirata One', cursive;
+
+/* Colors */
+$white: #ffffff;
+$black: #272822;
+$gray: #aaaaaa;
+$pastel: #fcd4ee;
+$strong: #00ddd0;
+
+/* Animation Settings */
+
+/* Speed */
+
+/* Easing */

@@ -1,0 +1,21 @@
+
+.page {
+  position: relative;
+}
+
+.page__content {
+  position: relative;
+  z-index: 30;
+  padding-bottom: ms(6);
+}
+
+.page__bg {
+  position: fixed;
+  backface-visibility: hidden;
+  z-index: 10;
+  top: 36px;
+  left: 36px;
+  right: 36px;
+  bottom: 36px;
+  background-color: $pastel;
+}

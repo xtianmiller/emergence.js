@@ -1,0 +1,32 @@
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: ms(3);
+  padding-right: ms(3);
+  max-width: ms(12);
+  *zoom: 1;
+
+  @include media(">=tablet") {
+    padding-left: ms(4);
+    padding-right: ms(4);
+  }
+}
+
+.container--fluid {
+  position: relative;
+  max-width: 100%;
+
+  @include media(">=tablet") {
+    max-width: 90%;
+  }
+}
+
+.container:before,
+.container:after {
+  content: " ";
+  display: table;
+}
+.container:after {
+  clear: both;
+}

@@ -1,0 +1,85 @@
+
+.column {
+  float: left;
+  width: 33.333333%;
+  padding-left: ms(-2);
+  padding-right: ms(-2);
+
+  @include media("<tablet") {
+	  width: 50%;
+	  padding-left: ms(-4);
+	  padding-right: ms(-4);
+  }
+
+	&.column2 {
+	  padding-top: 11.5%;
+
+	  @include media("<tablet") {
+	    display: none
+	  }
+	}
+
+	&.column3 {
+	  padding-top: 22.9%;
+
+	  @include media("<tablet") {
+	    padding-top: 28%;
+	  }
+	}
+}
+
+.shape {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  margin-bottom: ms(1);
+  position: relative;
+
+  @include media(">=tablet") {
+    margin-bottom: ms(3);
+  }
+
+  svg {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  will-change: transform;
+	  transition: transform 600ms cubic-bezier(0.580, 0.300, 0.005, 1.000);
+	  z-index: 10;
+  }
+
+	&[data-emergence=hidden] svg {
+	  transform: scale(0.3);
+	}
+
+	&[data-emergence=visible] svg {
+	  transform: scale(0.9);
+	}
+
+	&.shape__square svg path { fill: $white; }
+	&.shape__triangle svg path { fill: $strong; }
+	&.shape__circle svg circle { fill: $black; }
+
+	&:before, &:after {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateZ(0) translateX(-50%) translateY(-50%);
+		background-color: $pastel;
+		z-index: 20;
+	}
+
+	&:before {
+		width: ms(-2);
+		height: 1px;
+	}
+
+	&:after {
+		height: ms(-2);
+		width: 1px;
+	}
+}
