@@ -1,4 +1,4 @@
-[![Emergence.js - detect element visibility in the browser](https://xtianmiller.github.io/emergence.js/dist/images/emergence-title.png)](https://xtianmiller.github.io/emergence.js)
+[![Emergence.js - detect element visibility in the browser](https://xtianmiller.github.io/emergence.js/dist/images/emergence-title.png#2)](https://xtianmiller.github.io/emergence.js)
 
 Emergence.js is a lightweight, high-performance JS plugin for detecting and manipulating elements in the browser.
 
