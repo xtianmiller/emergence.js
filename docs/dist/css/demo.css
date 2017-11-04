@@ -3,9 +3,6 @@
 /* Line Heights */
 /* Fonts */
 /* Colors */
-/* Animation Settings */
-/* Speed */
-/* Easing */
 html,
 body,
 div,
@@ -273,6 +270,11 @@ a {
   -moz-transition: transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -moz-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   transition: transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   transition: transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -webkit-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -moz-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -o-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1); }
+  @media (max-width: 799px) {
+    .header,
+    .footer {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem; } }
 
 .header {
   top: 0;
@@ -334,6 +336,12 @@ a {
   right: 36px;
   bottom: 36px;
   background-color: #fcd4ee; }
+  @media (max-width: 799px) {
+    .page__bg {
+      top: 0.75rem;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: 0.75rem; } }
 
 .container {
   width: 100%;
@@ -425,6 +433,10 @@ a {
   transition: transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   transition: transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -webkit-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -moz-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1), -o-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   overflow: visible; }
+  @media (max-width: 799px) {
+    .offset {
+      left: 0.75rem;
+      right: 0.75rem; } }
 
 .offset__top {
   top: -64px; }
@@ -502,37 +514,49 @@ a.btn {
   @media (min-width: 800px) {
     .shape {
       margin-bottom: 2.37037rem; } }
-  .shape svg {
+  .shape__svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 10;
     will-change: transform;
     -webkit-transition: -webkit-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
     transition: -webkit-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
     -o-transition: -o-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
     -moz-transition: transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -moz-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
     transition: transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
-    transition: transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -webkit-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -moz-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -o-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
-    z-index: 10; }
-  .shape[data-emergence=hidden] svg {
+    transition: transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -webkit-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -moz-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1), -o-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1); }
+  .shape svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform; }
+  .shape[data-emergence=hidden] .shape__svg {
     -webkit-transform: scale(0.3);
        -moz-transform: scale(0.3);
         -ms-transform: scale(0.3);
          -o-transform: scale(0.3);
             transform: scale(0.3); }
-  .shape[data-emergence=visible] svg {
+  .shape[data-emergence=visible] .shape__svg {
     -webkit-transform: scale(0.9);
        -moz-transform: scale(0.9);
         -ms-transform: scale(0.9);
          -o-transform: scale(0.9);
             transform: scale(0.9); }
-  .shape.shape__square svg path {
+  .shape[data-emergence=visible] svg {
+    -webkit-animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1);
+       -moz-animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1);
+         -o-animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1);
+            animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1); }
+  .shape.shape--square svg path {
     fill: #ffffff; }
-  .shape.shape__triangle svg path {
+  .shape.shape--triangle svg path {
     fill: #00ddd0; }
-  .shape.shape__circle svg circle {
+  .shape.shape--circle svg circle {
     fill: #272822; }
   .shape:before, .shape:after {
     display: block;
@@ -551,3 +575,71 @@ a.btn {
   .shape:after {
     height: 0.5625rem;
     width: 1px; }
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); }
+  25% {
+    -webkit-transform: scale3d(1.1, 0.9, 1);
+            transform: scale3d(1.1, 0.9, 1); }
+  50% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1); }
+  75% {
+    -webkit-transform: scale3d(1.02, 0.98, 1);
+            transform: scale3d(1.02, 0.98, 1); }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); } }
+
+@-moz-keyframes jello-horizontal {
+  0% {
+    -moz-transform: scale3d(1, 1, 1);
+         transform: scale3d(1, 1, 1); }
+  25% {
+    -moz-transform: scale3d(1.1, 0.9, 1);
+         transform: scale3d(1.1, 0.9, 1); }
+  50% {
+    -moz-transform: scale3d(0.95, 1.05, 1);
+         transform: scale3d(0.95, 1.05, 1); }
+  75% {
+    -moz-transform: scale3d(1.02, 0.98, 1);
+         transform: scale3d(1.02, 0.98, 1); }
+  100% {
+    -moz-transform: scale3d(1, 1, 1);
+         transform: scale3d(1, 1, 1); } }
+
+@-o-keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1); }
+  25% {
+    transform: scale3d(1.1, 0.9, 1); }
+  50% {
+    transform: scale3d(0.95, 1.05, 1); }
+  75% {
+    transform: scale3d(1.02, 0.98, 1); }
+  100% {
+    transform: scale3d(1, 1, 1); } }
+
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+       -moz-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); }
+  25% {
+    -webkit-transform: scale3d(1.1, 0.9, 1);
+       -moz-transform: scale3d(1.1, 0.9, 1);
+            transform: scale3d(1.1, 0.9, 1); }
+  50% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+       -moz-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1); }
+  75% {
+    -webkit-transform: scale3d(1.02, 0.98, 1);
+       -moz-transform: scale3d(1.02, 0.98, 1);
+            transform: scale3d(1.02, 0.98, 1); }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+       -moz-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); } }

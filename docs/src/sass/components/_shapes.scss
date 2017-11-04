@@ -39,6 +39,17 @@
     margin-bottom: ms(3);
   }
 
+  &__svg {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	z-index: 10;
+	  will-change: transform;
+	  transition: transform 600ms cubic-bezier(0.580, 0.300, 0.005, 1.000);
+  }
+
   svg {
 	  position: absolute;
 	  top: 0;
@@ -46,21 +57,24 @@
 	  width: 100%;
 	  height: 100%;
 	  will-change: transform;
-	  transition: transform 600ms cubic-bezier(0.580, 0.300, 0.005, 1.000);
-	  z-index: 10;
   }
 
-	&[data-emergence=hidden] svg {
+	&[data-emergence=hidden] .shape__svg {
 	  transform: scale(0.3);
 	}
 
-	&[data-emergence=visible] svg {
+	&[data-emergence=visible] .shape__svg {
 	  transform: scale(0.9);
 	}
 
-	&.shape__square svg path { fill: $white; }
-	&.shape__triangle svg path { fill: $strong; }
-	&.shape__circle svg circle { fill: $black; }
+	&[data-emergence=visible] svg {
+    animation: jello-horizontal 0.6s both cubic-bezier(0.580, 0.300, 0.005, 1.000);
+	}
+
+
+	&.shape--square svg path { fill: $white; }
+	&.shape--triangle svg path { fill: $strong; }
+	&.shape--circle svg circle { fill: $black; }
 
 	&:before, &:after {
 		display: block;
@@ -83,3 +97,39 @@
 		width: 1px;
 	}
 }
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+	  transform: scale3d(1, 1, 1);
+  }
+  25% {
+    transform: scale3d(1.1, 0.9, 1);
+  }
+  50% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.02, 0.98, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  25% {
+    transform: scale3d(1.1, 0.9, 1);
+  }
+  50% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.02, 0.98, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+

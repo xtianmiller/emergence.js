@@ -15,6 +15,11 @@
   right: 0;
   will-change: transform;
   transition: transform 1.2s cubic-bezier(0.580, 0.300, 0.005, 1.000);
+
+  @include media("<tablet") {
+    padding-left: ms(-1);
+    padding-right: ms(-1);
+  }
 }
 
 .header {

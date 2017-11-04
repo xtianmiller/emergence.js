@@ -10,6 +10,11 @@
   will-change: transform;
   transition: transform 1.2s cubic-bezier(0.580, 0.300, 0.005, 1.000);
   overflow: visible;
+
+  @include media("<tablet") {
+    left: ms(-1);
+    right: ms(-1);
+  }
 }
 
 .offset__top { top: -64px; }

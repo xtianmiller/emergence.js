@@ -18,4 +18,11 @@
   right: 36px;
   bottom: 36px;
   background-color: $pastel;
+
+  @include media("<tablet") {
+    top: ms(-1);
+    left: ms(-1);
+    right: ms(-1);
+    bottom: ms(-1);
+  }
 }

@@ -3,3 +3,4 @@ bower_components
 .sass-cache
 .DS_Store
 npm-debug.log
+package-lock.json

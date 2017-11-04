@@ -1,6 +1,5 @@
 {
-  "name": "Emergence.js Demo",
-  "version": "1.0.0",
+  "name": "Emergence.js demo",
   "ignore": [
     "**/.*",
     "node_modules",
