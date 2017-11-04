@@ -1,8 +1,9 @@
 [![Emergence.js - detect element visibility in the browser](https://xtianmiller.github.io/emergence.js/dist/images/emergence-title.png)](https://xtianmiller.github.io/emergence.js)
+
 Emergence.js is a lightweight, high-performance JS plugin for detecting and manipulating elements in the browser.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![NPM version](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/emergence.js)
+[![NPM version](https://img.shields.io/badge/npm-v1.0.10-blue.svg)](https://www.npmjs.com/package/emergence.js)
 
 - Dependancy-free
 - IE8+ and all modern browsers
