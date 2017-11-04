@@ -1,5 +1,5 @@
 {
-  "name": "Emergence.js demo",
+  "name": "emergencejs-demo",
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "del": "^3.0.0",
