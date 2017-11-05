@@ -1,6 +1,6 @@
 {
   "name": "emergence.js",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Detect element visibility in the browser",
   "author": "@xtianmiller",
   "license": "MIT",
@@ -8,10 +8,12 @@
   "main": "src/emergence.js",
   "moduleType": [],
   "keywords": [
-    "emergence",
+    "viewport",
+    "visibility",
     "reveal",
-    "elements",
-    "animate"
+    "animation",
+    "scroll",
+    "element"
   ],
   "ignore": [
     "**/.*",
@@ -19,7 +21,8 @@
     "bower_components",
     "test",
     "tests",
-    "npm-debug.log"
+    "npm-debug.log",
+    "package-lock.json"
   ],
   "authors": [
     "Christian Miller <contact@xtianmiller.com>"

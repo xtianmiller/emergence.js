@@ -13,7 +13,6 @@
   z-index: 40;
   left: 0;
   right: 0;
-  will-change: transform;
   transition: transform 1.2s cubic-bezier(0.580, 0.300, 0.005, 1.000);
 
   @include media("<tablet") {
@@ -24,7 +23,7 @@
 
 .header {
   top: 0;
-  transform: translateY(-150%);
+  transform: translateY(-150%) translateZ(0);
 
 	.logo {
 	  font-size: ms(1);
@@ -42,7 +41,7 @@
 .footer {
   font-size: ms(-1);
   bottom: 0;
-  transform: translateY(150%);
+  transform: translateY(150%) translateZ(0);
   color: $gray;
   font-weight: 600;
 
@@ -53,5 +52,5 @@
 
 .scrolled .header,
 .scrolled .footer {
-  transform: translateY(0%);
+  transform: translateY(0%) translateZ(0);
 }

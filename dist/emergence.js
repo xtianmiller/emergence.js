@@ -1,4 +1,4 @@
-/*! emergence.js v1.1.0 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
+/*! emergence.js v1.1.2 | (c) 2017 @xtianmiller | https://github.com/xtianmiller/emergence.js */
 (function(root, factory) {
   // AMD
   if (typeof define === 'function' && define.amd) {
@@ -29,7 +29,7 @@
   // Checks if user is on a handheld
   // @return {bool} true if it's a handheld, otherwise false
   var isHandheld = function() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|playbook|silk/i.test(
       navigator.userAgent
     );
   };
@@ -202,7 +202,7 @@
     if (!cutsTheMustard()) {
 
       // Provide message in console.log
-      console.log('emergence.js is not supported in this browser.');
+      console.log('Emergence.js is not supported in this browser.');
 
     }
     // If this is handheld device AND handheld option is true
@@ -277,6 +277,8 @@
       }
     }
     
+    // If no data-emergence attributes are found
+    // Disengage emergence
     if (!length) {
       emergence.disengage();
     }

@@ -182,7 +182,7 @@ textarea {
 html {
   overflow-x: hidden;
   min-height: 100%;
-  font-size: 22px;
+  font-size: 20px;
   text-rendering: optimizeLegibility; }
   @media (min-width: 480px) {
     html {
@@ -209,14 +209,11 @@ body {
   text-align: center; }
 
 h1 {
-  font-size: 1.77778rem;
+  font-size: 2.37037rem;
   font-family: "Pirata One", cursive;
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1; }
-  @media (min-width: 400px) {
-    h1 {
-      font-size: 2.37037rem; } }
   @media (min-width: 480px) {
     h1 {
       font-size: 3.16049rem; } }
@@ -263,7 +260,6 @@ a {
   z-index: 40;
   left: 0;
   right: 0;
-  will-change: transform;
   -webkit-transition: -webkit-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   transition: -webkit-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   -o-transition: -o-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
@@ -278,11 +274,9 @@ a {
 
 .header {
   top: 0;
-  -webkit-transform: translateY(-150%);
-     -moz-transform: translateY(-150%);
-      -ms-transform: translateY(-150%);
-       -o-transform: translateY(-150%);
-          transform: translateY(-150%); }
+  -webkit-transform: translateY(-150%) translateZ(0);
+     -moz-transform: translateY(-150%) translateZ(0);
+          transform: translateY(-150%) translateZ(0); }
   .header .logo {
     font-size: 1.33333rem;
     font-family: "Pirata One", cursive;
@@ -295,11 +289,9 @@ a {
 .footer {
   font-size: 0.75rem;
   bottom: 0;
-  -webkit-transform: translateY(150%);
-     -moz-transform: translateY(150%);
-      -ms-transform: translateY(150%);
-       -o-transform: translateY(150%);
-          transform: translateY(150%);
+  -webkit-transform: translateY(150%) translateZ(0);
+     -moz-transform: translateY(150%) translateZ(0);
+          transform: translateY(150%) translateZ(0);
   color: #aaaaaa;
   font-weight: 600; }
   .footer p {
@@ -311,11 +303,9 @@ a {
 
 .scrolled .header,
 .scrolled .footer {
-  -webkit-transform: translateY(0%);
-     -moz-transform: translateY(0%);
-      -ms-transform: translateY(0%);
-       -o-transform: translateY(0%);
-          transform: translateY(0%); }
+  -webkit-transform: translateY(0%) translateZ(0);
+     -moz-transform: translateY(0%) translateZ(0);
+          transform: translateY(0%) translateZ(0); }
 
 .page {
   position: relative; }
@@ -384,36 +374,13 @@ a {
       -ms-flex-align: center;
           align-items: center;
   position: relative; }
+  @media (max-width: 799px) {
+    .fullscreen {
+      height: auto;
+      padding-top: 5.61866rem;
+      padding-bottom: 4.21399rem; } }
   .fullscreen a.btn {
     margin-top: 1.77778rem; }
-
-/* fix iOS bug not displaying 100vh correctly */
-/* ipad */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .fullscreen {
-    height: 768px; } }
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  .fullscreen {
-    height: 1024px; } }
-
-/* iphone5 */
-@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
-  .fullscreen {
-    height: 320px; } }
-
-@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
-  .fullscreen {
-    height: 568px; } }
-
-/* iPhone 4 */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .fullscreen {
-    height: 320px; } }
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-  .fullscreen {
-    height: 480px; } }
 
 .offset {
   position: fixed;
@@ -425,7 +392,9 @@ a {
   left: 36px;
   right: 36px;
   height: 100px;
-  will-change: transform;
+  -webkit-transform: translateY(0px) translateZ(0);
+     -moz-transform: translateY(0px) translateZ(0);
+          transform: translateY(0px) translateZ(0);
   -webkit-transition: -webkit-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   transition: -webkit-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
   -o-transition: -o-transform 1.2s cubic-bezier(0.58, 0.3, 0.005, 1);
@@ -445,18 +414,14 @@ a {
   bottom: -64px; }
 
 .scrolled .offset__top {
-  -webkit-transform: translateY(64px);
-     -moz-transform: translateY(64px);
-      -ms-transform: translateY(64px);
-       -o-transform: translateY(64px);
-          transform: translateY(64px); }
+  -webkit-transform: translateY(64px) translateZ(0);
+     -moz-transform: translateY(64px) translateZ(0);
+          transform: translateY(64px) translateZ(0); }
 
 .scrolled .offset__bottom {
-  -webkit-transform: translateY(-64px);
-     -moz-transform: translateY(-64px);
-      -ms-transform: translateY(-64px);
-       -o-transform: translateY(-64px);
-          transform: translateY(-64px); }
+  -webkit-transform: translateY(-64px) translateZ(0);
+     -moz-transform: translateY(-64px) translateZ(0);
+          transform: translateY(-64px) translateZ(0); }
 
 a.btn {
   display: inline-block;
@@ -521,7 +486,9 @@ a.btn {
     width: 100%;
     height: 100%;
     z-index: 10;
-    will-change: transform;
+    -webkit-transform: scale(0.3) translateZ(0);
+       -moz-transform: scale(0.3) translateZ(0);
+            transform: scale(0.3) translateZ(0);
     -webkit-transition: -webkit-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
     transition: -webkit-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
     -o-transition: -o-transform 600ms cubic-bezier(0.58, 0.3, 0.005, 1);
@@ -534,24 +501,18 @@ a.btn {
     left: 0;
     width: 100%;
     height: 100%;
-    will-change: transform; }
-  .shape[data-emergence=hidden] .shape__svg {
-    -webkit-transform: scale(0.3);
-       -moz-transform: scale(0.3);
-        -ms-transform: scale(0.3);
-         -o-transform: scale(0.3);
-            transform: scale(0.3); }
+    -webkit-transform: scale3d(1, 1, 1) translateZ(0);
+       -moz-transform: scale3d(1, 1, 1) translateZ(0);
+            transform: scale3d(1, 1, 1) translateZ(0); }
   .shape[data-emergence=visible] .shape__svg {
-    -webkit-transform: scale(0.9);
-       -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-         -o-transform: scale(0.9);
-            transform: scale(0.9); }
+    -webkit-transform: scale(0.9) translateZ(0);
+       -moz-transform: scale(0.9) translateZ(0);
+            transform: scale(0.9) translateZ(0); }
   .shape[data-emergence=visible] svg {
-    -webkit-animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1);
-       -moz-animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1);
-         -o-animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1);
-            animation: jello-horizontal 0.6s both cubic-bezier(0.58, 0.3, 0.005, 1); }
+    -webkit-animation: jello-horizontal 600ms both cubic-bezier(0.58, 0.3, 0.005, 1);
+       -moz-animation: jello-horizontal 600ms both cubic-bezier(0.58, 0.3, 0.005, 1);
+         -o-animation: jello-horizontal 600ms both cubic-bezier(0.58, 0.3, 0.005, 1);
+            animation: jello-horizontal 600ms both cubic-bezier(0.58, 0.3, 0.005, 1); }
   .shape.shape--square svg path {
     fill: #ffffff; }
   .shape.shape--triangle svg path {
@@ -564,9 +525,9 @@ a.btn {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translateZ(0) translateX(-50%) translateY(-50%);
-       -moz-transform: translateZ(0) translateX(-50%) translateY(-50%);
-            transform: translateZ(0) translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0);
+       -moz-transform: translateX(-50%) translateY(-50%) translateZ(0);
+            transform: translateX(-50%) translateY(-50%) translateZ(0);
     background-color: #fcd4ee;
     z-index: 20; }
   .shape:before {
@@ -578,68 +539,68 @@ a.btn {
 
 @-webkit-keyframes jello-horizontal {
   0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    -webkit-transform: scale3d(1, 1, 1) translateZ(0);
+            transform: scale3d(1, 1, 1) translateZ(0); }
   25% {
-    -webkit-transform: scale3d(1.1, 0.9, 1);
-            transform: scale3d(1.1, 0.9, 1); }
+    -webkit-transform: scale3d(1.1, 0.9, 1) translateZ(0);
+            transform: scale3d(1.1, 0.9, 1) translateZ(0); }
   50% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-            transform: scale3d(0.95, 1.05, 1); }
+    -webkit-transform: scale3d(0.95, 1.05, 1) translateZ(0);
+            transform: scale3d(0.95, 1.05, 1) translateZ(0); }
   75% {
-    -webkit-transform: scale3d(1.02, 0.98, 1);
-            transform: scale3d(1.02, 0.98, 1); }
+    -webkit-transform: scale3d(1.02, 0.98, 1) translateZ(0);
+            transform: scale3d(1.02, 0.98, 1) translateZ(0); }
   100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); } }
+    -webkit-transform: scale3d(1, 1, 1) translateZ(0);
+            transform: scale3d(1, 1, 1) translateZ(0); } }
 
 @-moz-keyframes jello-horizontal {
   0% {
-    -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1); }
+    -moz-transform: scale3d(1, 1, 1) translateZ(0);
+         transform: scale3d(1, 1, 1) translateZ(0); }
   25% {
-    -moz-transform: scale3d(1.1, 0.9, 1);
-         transform: scale3d(1.1, 0.9, 1); }
+    -moz-transform: scale3d(1.1, 0.9, 1) translateZ(0);
+         transform: scale3d(1.1, 0.9, 1) translateZ(0); }
   50% {
-    -moz-transform: scale3d(0.95, 1.05, 1);
-         transform: scale3d(0.95, 1.05, 1); }
+    -moz-transform: scale3d(0.95, 1.05, 1) translateZ(0);
+         transform: scale3d(0.95, 1.05, 1) translateZ(0); }
   75% {
-    -moz-transform: scale3d(1.02, 0.98, 1);
-         transform: scale3d(1.02, 0.98, 1); }
+    -moz-transform: scale3d(1.02, 0.98, 1) translateZ(0);
+         transform: scale3d(1.02, 0.98, 1) translateZ(0); }
   100% {
-    -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1); } }
+    -moz-transform: scale3d(1, 1, 1) translateZ(0);
+         transform: scale3d(1, 1, 1) translateZ(0); } }
 
 @-o-keyframes jello-horizontal {
   0% {
-    transform: scale3d(1, 1, 1); }
+    transform: scale3d(1, 1, 1) translateZ(0); }
   25% {
-    transform: scale3d(1.1, 0.9, 1); }
+    transform: scale3d(1.1, 0.9, 1) translateZ(0); }
   50% {
-    transform: scale3d(0.95, 1.05, 1); }
+    transform: scale3d(0.95, 1.05, 1) translateZ(0); }
   75% {
-    transform: scale3d(1.02, 0.98, 1); }
+    transform: scale3d(1.02, 0.98, 1) translateZ(0); }
   100% {
-    transform: scale3d(1, 1, 1); } }
+    transform: scale3d(1, 1, 1) translateZ(0); } }
 
 @keyframes jello-horizontal {
   0% {
-    -webkit-transform: scale3d(1, 1, 1);
-       -moz-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    -webkit-transform: scale3d(1, 1, 1) translateZ(0);
+       -moz-transform: scale3d(1, 1, 1) translateZ(0);
+            transform: scale3d(1, 1, 1) translateZ(0); }
   25% {
-    -webkit-transform: scale3d(1.1, 0.9, 1);
-       -moz-transform: scale3d(1.1, 0.9, 1);
-            transform: scale3d(1.1, 0.9, 1); }
+    -webkit-transform: scale3d(1.1, 0.9, 1) translateZ(0);
+       -moz-transform: scale3d(1.1, 0.9, 1) translateZ(0);
+            transform: scale3d(1.1, 0.9, 1) translateZ(0); }
   50% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-       -moz-transform: scale3d(0.95, 1.05, 1);
-            transform: scale3d(0.95, 1.05, 1); }
+    -webkit-transform: scale3d(0.95, 1.05, 1) translateZ(0);
+       -moz-transform: scale3d(0.95, 1.05, 1) translateZ(0);
+            transform: scale3d(0.95, 1.05, 1) translateZ(0); }
   75% {
-    -webkit-transform: scale3d(1.02, 0.98, 1);
-       -moz-transform: scale3d(1.02, 0.98, 1);
-            transform: scale3d(1.02, 0.98, 1); }
+    -webkit-transform: scale3d(1.02, 0.98, 1) translateZ(0);
+       -moz-transform: scale3d(1.02, 0.98, 1) translateZ(0);
+            transform: scale3d(1.02, 0.98, 1) translateZ(0); }
   100% {
-    -webkit-transform: scale3d(1, 1, 1);
-       -moz-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); } }
+    -webkit-transform: scale3d(1, 1, 1) translateZ(0);
+       -moz-transform: scale3d(1, 1, 1) translateZ(0);
+            transform: scale3d(1, 1, 1) translateZ(0); } }

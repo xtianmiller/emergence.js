@@ -7,7 +7,7 @@
   left: 36px;
   right: 36px;
   height: 100px;
-  will-change: transform;
+  transform: translateY(0px) translateZ(0);
   transition: transform 1.2s cubic-bezier(0.580, 0.300, 0.005, 1.000);
   overflow: visible;
 
@@ -19,5 +19,5 @@
 
 .offset__top { top: -64px; }
 .offset__bottom { bottom: -64px; }
-.scrolled .offset__top { transform: translateY(64px); }
-.scrolled .offset__bottom { transform: translateY(-64px); }
+.scrolled .offset__top { transform: translateY(64px) translateZ(0); }
+.scrolled .offset__bottom { transform: translateY(-64px) translateZ(0); }

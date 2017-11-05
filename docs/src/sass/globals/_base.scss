@@ -1,7 +1,7 @@
 html {
   overflow-x: hidden;
   min-height: 100%;
-  font-size: 22px;
+  font-size: 20px;
   text-rendering: optimizeLegibility;
 
   @include media(">=phone") {
@@ -34,15 +34,11 @@ body {
 }
 
 h1 {
-  font-size: ms(2);
+  font-size: ms(3);
   font-family: $pirata;
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1;
-
-  @include media(">=small_phone") {
-    font-size: ms(3);
-  }
 
   @include media(">=phone") {
     font-size: ms(4);

@@ -1,20 +1,21 @@
 {
   "name": "emergence.js",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Detect element visibility in the browser",
   "author": "@xtianmiller",
   "license": "MIT",
   "homepage": "https://github.com/xtianmiller/emergence.js",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-clean": "^0.2.4",
+    "gulp-clean": "^0.3.2",
     "gulp-header": "^1.0.2",
-    "gulp-jshint": "^1.11.0",
-    "gulp-plumber": "~0.6.2",
-    "gulp-rename": "~1.1.0",
-    "gulp-uglify": "~0.3.0",
-    "gulp-size": "^1.2.2",
-    "jshint-stylish": "^0.2.0"
+    "gulp-jshint": "^2.0.4",
+    "gulp-plumber": "~1.1.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "~3.0.0",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1"
   },
   "main": "src/emergence.js",
   "dependencies": {}

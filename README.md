@@ -7,7 +7,7 @@ Emergence.js is a lightweight, high-performance JS plugin for detecting and mani
 ***
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-00ddd0.svg)](https://opensource.org/licenses/MIT)
-[![NPM version](https://img.shields.io/badge/npm-v1.1.1-00ddd0.svg)](https://www.npmjs.com/package/emergence.js)
+[![NPM version](https://img.shields.io/badge/npm-v1.1.2-00ddd0.svg)](https://www.npmjs.com/package/emergence.js)
 
 - Dependancy-free
 - IE8+ and all modern browsers
@@ -137,6 +137,7 @@ emergence.disengage();
 Emergence.js is dependent on the following browser APIs:
 
 - [querySelectorAll](http://caniuse.com/#feat=queryselector)
+  - For support in IE8, ensure standards mode
 
 ***
 
@@ -144,3 +145,15 @@ Emergence.js is dependent on the following browser APIs:
 Issues can be resolved quicker if they are descriptive and include both a minimal test case and a set of steps to reproduce.
 
 While new features are welcome, any contributions that can fix bugs, maximize compatibility, and improve performance are preferred.
+
+***
+
+## Release history
+
+- 1.1.2
+  - Added handheld detection for Kindle Fire and PlayBook
+  - Updated comments
+  - Updated npm packages
+  - Optimized animations on demo
+  - Optimized responsive styles on demo
+  - Added release history to README.md

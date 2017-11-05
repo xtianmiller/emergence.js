@@ -6,42 +6,13 @@
   align-items: center;
   position: relative;
 
+  @include media("<tablet") {
+    height: auto;
+    padding-top: ms(6);
+    padding-bottom: ms(5);
+  }
+
   a.btn {
     margin-top: ms(2);
-  }
-}
-
-/* fix iOS bug not displaying 100vh correctly */
-/* ipad */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-  .fullscreen {
-    height: 768px;
-  }
-}
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-  .fullscreen {
-    height: 1024px;
-  }
-}
-/* iphone5 */
-@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2) {
-  .fullscreen {
-    height: 320px;
-  }
-}
-@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2) {
-  .fullscreen {
-    height: 568px;
-  }
-}
-/* iPhone 4 */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-  .fullscreen {
-    height: 320px;
-  }
-}
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-  .fullscreen {
-    height: 480px;
   }
 }
