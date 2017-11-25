@@ -8,6 +8,7 @@ Emergence.js is a lightweight, high-performance JS plugin for detecting and mani
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-00ddd0.svg)](https://opensource.org/licenses/MIT)
 [![NPM version](https://img.shields.io/badge/npm-v1.1.2-00ddd0.svg)](https://www.npmjs.com/package/emergence.js)
+[![CDNJS version](https://img.shields.io/cdnjs/v/emergence.js.svg)](https://cdnjs.com/libraries/emergence.js)
 
 - Dependancy-free
 - IE8+ and all modern browsers
